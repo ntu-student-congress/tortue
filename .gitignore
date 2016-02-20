@@ -5,3 +5,8 @@ node_modules
 *.dvi
 *.aux
 *.pdf
+*.tex
+*.toc
+!sample.pdf
+!front.tex
+!back.tex
