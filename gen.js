@@ -34,8 +34,8 @@ fs.readdir("laws", function(err, laws) {
 		return law_latex;
 	});
 
-	var latex_final = fs.readFileSync('header.tex', 'utf-8');
+	var latex_final = fs.readFileSync('front.tex', 'utf-8');
 	latex_final += sections_latex.join("\n\n");
-	latex_final += "\\end{document}";
+	latex_final += fs.readFileSync('back.tex', 'utf-8');
 	console.log(latex_final);
 });
