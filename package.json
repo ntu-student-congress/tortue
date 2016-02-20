@@ -1,0 +1,19 @@
+{
+  "name": "tortue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntu-student-congress/tortue.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/ntu-student-congress/tortue/issues"
+  },
+  "homepage": "https://github.com/ntu-student-congress/tortue#readme"
+}

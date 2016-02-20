@@ -1,0 +1,75 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% 參考資料
+% https://www.foolegg.com/how-to-setting-up-a-xelatex-environment-on-osx/
+% http://www.hitripod.com/blog/2011/04/xetex-chinese-font-cjk-latex/
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry} % 設定邊界
+\geometry{
+  top=1in,
+  inner=1in,
+  outer=1in,
+  bottom=1in,
+  headheight=3ex,
+  headsep=2ex
+}
+\usepackage{fontspec} % 允許設定字體
+\usepackage{xeCJK} % 分開設置中英文字型
+\setCJKmainfont{LiHei Pro} % 設定中文字型
+\setmainfont{Georgia} % 設定英文字型
+\setromanfont{Georgia} % 字型
+\setmonofont{Courier New}
+\linespread{1.2}\selectfont % 行距
+\XeTeXlinebreaklocale "zh" % 針對中文自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt % 字與字之間加入0pt至1pt的間距，確保左右對整齊
+\parindent 0em % 段落縮進
+\setlength{\parskip}{20pt} % 段落之間的距離
+
+\setCJKfamilyfont{biaukai}{BiauKai} % 設定新字型(標階體)
+\newcommand\fontbk{\CJKfamily{biaukai}} % 新增指令\fontbk應用字型
+\setCJKfamilyfont{pmingliu}{PMingLiU} % 設定新字型(新細明體)
+\newcommand\fontml{\CJKfamily{pmingliu}} % 新增指令\fontml應用字型
+
+\title{\huge 國立臺灣大學學生會法規彙編} % 設置標題，使用巨大字體
+\author{國立臺灣大學學生代表大會} % 設置作者
+\date{February 2016} % 設置日期
+\usepackage{titling}
+\setlength{\droptitle}{-8em} % 將標題移動至頁面的上面
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancyplain}
+\lhead{} % 左頁首
+\chead{} % 中頁首
+\rhead{\fancyplain{}{國立臺灣大學學生會法規彙編}} % 右頁首
+\lfoot{} % 左頁尾
+\cfoot{} % 中頁尾
+\rfoot{\fancyplain{}{\thepage\ of \pageref{LastPage}}} % 右頁尾
+
+\begin{document}
+
+\clearpage
+
+\maketitle % 顯示標題
+
+\section{第一段落}
+
+\subsection{第一子段落}
+
+\newpage % 新一頁
+
+\subsection{第二子段落}
+
+這一行是使用儷黑Pro哦！
+
+{
+\fontbk
+這一行是使用標階體哦！
+}
+
+{
+\fontml
+這一行是使用新細明體哦！
+}
+
+這一行又是使用儷黑Pro哦！
