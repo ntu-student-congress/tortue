@@ -1,5 +1,7 @@
 國立臺灣大學學生會法規彙編
 =======================
+[![Build Status](https://travis-ci.org/ntu-student-congress/tortue.svg?branch=master)](https://travis-ci.org/ntu-student-congress/tortue)
+
 這是一個將**國立臺灣大學學生會**法規彙編資料結構化的專案。<br>
 專案代號為 **Tortue**，取自**法**文中烏**龜**的單字<br>
 *更多說明待補充*
