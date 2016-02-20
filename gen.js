@@ -22,9 +22,9 @@ fs.readdir("laws", function(err, laws) {
 				case 1: // 條
 					return "\\textbf{" + text + "}\\\\";
 				case 2: // 項
-					return "\\hspace*{10pt}" + text + "\\\\";
+					return "\\hspace*{1em}" + text + "\\\\";
 				case 3: // 款
-					return "\\hspace*{20pt}" + text + "\\\\";
+					return "\\hspace*{2em}" + text + "\\\\";
 				default:
 					return "";
 			}
