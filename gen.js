@@ -1,35 +1,41 @@
 var fs = require('fs');
 
-var law_text = fs.readFileSync('./laws/' + process.argv[process.argv.length - 1], 'utf-8');
-var law_data = law_text.split("\n\n");
-var latex_final = fs.readFileSync('header.tex', 'utf-8');
+fs.readdir("laws", function(err, laws) {
+	var sections_latex = laws.map(function(law) {
+		var law_data = fs.readFileSync("laws/" + law, 'utf-8').replace(/\r\n/g,"\n").split("\n\n");
+		var law_latex = '\\newpage \\section{' + law_data[0] + '}'; // 法名
 
-// 修訂紀錄
-latex_final += '\\newpage \\section{' + law_data[0] + '}'; // 法名
-latex_final += "{\\fontsize{9pt}{13pt} \\selectfont\n";
-latex_final += law_data[1].split("\n").join("\\\\\n");
-latex_final += "}\\\\\n\n";
+		// 修訂紀錄
+		law_latex += "{\\fontsize{9pt}{13pt} \\selectfont\n";
+		law_latex += law_data[1].split("\n").join("\\\\\n");
+		law_latex += "}\n\n";
 
-latex_final += "\\begin{multicols}{2}\n";
+		law_latex += "\\begin{multicols}{2}\n";
 
-// 內文
-var formatted_lines = law_data[2].split("\n").map(function(element, index, array) {
-	if(element[0] == "第") { // 章
-		return "\\subsection*{" + element + "}";
-	}
-	switch(element.search(/\S/) / 2){
-		case 1: // 條
-			return "\\textbf{" + element + "}\\\\";
-		case 2: // 項
-			return "\\hspace*{9pt} " + element + "\\\\";
-		case 3: // 款
-			return "\\hspace*{18pt} " + element + "\\\\";
-		default:
-			return "";
-	}
+		// 內文
+		var formatted_lines = law_data[2].split("\n").map(function(element, index, array) {
+			if(element[0] == "第") { // 章
+				return "\\subsection*{" + element + "}";
+			}
+			switch(element.search(/\S/) / 2){
+				case 1: // 條
+					return "\\textbf{" + element + "}\\\\";
+				case 2: // 項
+					return "\\hspace*{9pt} " + element + "\\\\";
+				case 3: // 款
+					return "\\hspace*{18pt} " + element + "\\\\";
+				default:
+					return "";
+			}
+		});
+
+		law_latex += formatted_lines.join("\n");
+		law_latex += "\\end{multicols}";
+		return law_latex;
+	});
+
+	var latex_final = fs.readFileSync('header.tex', 'utf-8');
+	latex_final += sections_latex.join("\n\n");
+	latex_final += "\\end{document}";
+	console.log(latex_final);
 });
-
-latex_final += formatted_lines.join("\n");
-latex_final += "\\end{multicols} \\end{document}";
-
-console.log(latex_final);
