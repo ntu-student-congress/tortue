@@ -16,7 +16,7 @@
  - gen.js 須使用 Node.js 執行
  - CJK 字元支援使用 XeLaTex 達成
  - 產生 PDF 檔案需有 LaTeX 相關程式
- - 目前預設字體為 LiHei Pro，需有安裝相關字體方能使用
+ - 目前預設字體為 Noto Sans CJK TC，需有安裝相關字體方能使用
 
 ## 使用範例
 使用以下命令將可以產生法規彙編之 **.pdf** 檔案
