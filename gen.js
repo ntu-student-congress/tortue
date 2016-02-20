@@ -17,13 +17,14 @@ fs.readdir("laws", function(err, laws) {
 			if(element[0] == "第") { // 章
 				return "\\subsection*{" + element + "}";
 			}
+			var text = element.replace(/^\s+/, '');
 			switch(element.search(/\S/) / 2){
 				case 1: // 條
-					return "\\textbf{" + element + "}\\\\";
+					return "\\textbf{" + text + "}\\\\";
 				case 2: // 項
-					return "\\hspace*{9pt} " + element + "\\\\";
+					return "\\hspace*{10pt}" + text + "\\\\";
 				case 3: // 款
-					return "\\hspace*{18pt} " + element + "\\\\";
+					return "\\hspace*{20pt}" + text + "\\\\";
 				default:
 					return "";
 			}
