@@ -21,9 +21,9 @@ var formatted_lines = law_data[2].split("\n").map(function(element, index, array
 		case 1: // 條
 			return "\\textbf{" + element + "}\\\\";
 		case 2: // 項
-			return "\\hspace*{15pt} " + element + "\\\\";
+			return "\\hspace*{9pt} " + element + "\\\\";
 		case 3: // 款
-			return "\\hspace*{30pt} " + element + "\\\\";
+			return "\\hspace*{18pt} " + element + "\\\\";
 		default:
 			return "";
 	}
