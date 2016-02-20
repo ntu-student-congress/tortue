@@ -15,7 +15,7 @@ latex_final += "\\begin{multicols}{2}\n";
 // 內文
 var formatted_lines = law_data[2].split("\n").map(function(element, index, array) {
 	if(element[0] == "第") { // 章
-		return "\\subsection{" + element + "}";
+		return "\\subsection*{" + element + "}";
 	}
 	switch(element.search(/\S/) / 2){
 		case 1: // 條
