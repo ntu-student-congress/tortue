@@ -3,7 +3,7 @@
 % 參考資料
 % https://www.foolegg.com/how-to-setting-up-a-xelatex-environment-on-osx/
 % http://www.hitripod.com/blog/2011/04/xetex-chinese-font-cjk-latex/
-\documentclass[12pt,a4paper]{article}
+\documentclass[9pt,a4paper]{article}
 \usepackage{geometry} % 設定邊界
 \geometry{
   top=1in,
@@ -13,6 +13,7 @@
   headheight=3ex,
   headsep=2ex
 }
+\usepackage{multicol} % 多欄
 \usepackage{fontspec} % 允許設定字體
 \usepackage{xeCJK} % 分開設置中英文字型
 \setCJKmainfont{LiHei Pro} % 設定中文字型
