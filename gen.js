@@ -12,10 +12,10 @@ fs.readdir("laws", function(err, law_cats) {
 		});
 		var laws_latex = laws.map(function(law) {
 			var law_data = fs.readFileSync("laws/" + law, 'utf-8').replace(/\r\n/g,"\n").split("\n\n");
-			var law_latex = "\\newpage \\section*{" + law_data[0] + "}\n\\addcontentsline{toc}{section}{" + law_data[0] + "}"; // 法名
+			var law_latex = "\\newpage \\section*{\\Ming" + law_data[0] + "}\n\\addcontentsline{toc}{section}{" + law_data[0] + "}"; // 法名
 
 			// 修訂紀錄
-			law_latex += "{\\fontsize{9pt}{13pt} \\selectfont\n";
+			law_latex += "{\\Ming \\fontsize{9pt}{13pt} \\selectfont\n";
 			law_latex += law_data[1].replace(/　+/g, '').split("\n").join("\\\\\n");
 			law_latex += "}\n\n";
 
