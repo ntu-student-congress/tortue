@@ -4,7 +4,7 @@ fs.readdir("laws", function(err, law_cats) {
 	var cats_latex = law_cats.map(function(law_cat) {
 		var stat = fs.statSync("laws/" + law_cat);
 		if(!stat || !stat.isDirectory()) return;
-		var cat_latex = '\\newpage\\vspace*{\\fill}\\begin{center} \\huge \\fontnoto ' + law_cat.split('_')[1] + '\\end{center}\\vspace*{\\fill}\n';
+		var cat_latex = '\\newpage\\vspace*{\\fill}\\begin{center} \\fontsize{100pt}{130pt} \\fontnoto ' + law_cat.split('_')[1] + '\\end{center}\\vspace*{\\fill}\n';
 		var laws_fn = fs.readdirSync("laws/" + law_cat);
 		var laws = [];
 		laws_fn.forEach(function(law_in_cat) {
