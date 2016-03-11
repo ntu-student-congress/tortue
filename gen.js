@@ -19,7 +19,7 @@ fs.readdir("laws", function(err, law_cats) {
 		law_latex += law_data[1].split("\n").join("\\\\\n");
 		law_latex += "}\n\n";
 
-		law_latex += "\\begin{multicols}{2}\n";
+		law_latex += "\\begin{multicols*}{2}\n";
 
 		// 內文
 		var formatted_lines = law_data[2].split("\n").map(function(element, index, array) {
@@ -40,7 +40,7 @@ fs.readdir("laws", function(err, law_cats) {
 		});
 
 		law_latex += formatted_lines.join("\n");
-		law_latex += "\\end{multicols}";
+		law_latex += "\\end{multicols*}";
 		return law_latex;
 	});
 
