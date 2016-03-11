@@ -31,9 +31,9 @@ fs.readdir("laws", function(err, law_cats) {
 					case 1: // 條
 						return "\\textbf{" + text.replace('【', '【{\\fontml ').replace('】', '}】') + "}\\\\";
 					case 2: // 項
-						return "\\hspace*{2em}" + text + "\\\\";
+						return "\\setlength{\\leftskip}{2em}\\hspace*{-2em}" + text + "\\setlength{\\leftskip}{0em}\\\\";
 					case 3: // 款
-						return "\\hspace*{4em}" + text + "\\\\";
+						return "\\setlength{\\leftskip}{4em}\\hspace*{-2em}" + text + "\\setlength{\\leftskip}{0em}\\\\";
 					case 4: // 目
 						return "\\hspace*{6em}" + text + "\\\\";
 					default:
