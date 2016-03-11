@@ -29,7 +29,7 @@ fs.readdir("laws", function(err, law_cats) {
 				var text = element.replace(/^\s+/, '');
 				switch(element.search(/\S/) / 2){
 					case 1: // 條
-						return "\\textbf{" + text + "}\\\\";
+						return "\\textbf{" + text.replace('【', '【{\\PML ').replace('】', '}】') + "}\\\\";
 					case 2: // 項
 						return "\\hspace*{2em}" + text + "\\\\";
 					case 3: // 款
