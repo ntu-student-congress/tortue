@@ -31,9 +31,11 @@ fs.readdir("laws", function(err, law_cats) {
 				case 1: // 條
 					return "\\textbf{" + text + "}\\\\";
 				case 2: // 項
-					return "\\hspace*{1em}" + text + "\\\\";
-				case 3: // 款
 					return "\\hspace*{2em}" + text + "\\\\";
+				case 3: // 款
+					return "\\hspace*{4em}" + text + "\\\\";
+				case 4: // 目
+					return "\\hspace*{6em}" + text + "\\\\";
 				default:
 					return "";
 			}
