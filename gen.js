@@ -12,7 +12,7 @@ fs.readdir("laws", function(err, law_cats) {
 	});
 	var sections_latex = laws.map(function(law) {
 		var law_data = fs.readFileSync("laws/" + law, 'utf-8').replace(/\r\n/g,"\n").split("\n\n");
-		var law_latex = '\\newpage \\section{' + law_data[0] + '}'; // 法名
+		var law_latex = "\\newpage \\section*{" + law_data[0] + "}\n\addcontentsline{toc}{section}{" + law_data[0] + "}"; // 法名
 
 		// 修訂紀錄
 		law_latex += "{\\fontsize{9pt}{13pt} \\selectfont\n";
