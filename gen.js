@@ -16,7 +16,7 @@ fs.readdir("laws", function(err, law_cats) {
 
 		// 修訂紀錄
 		law_latex += "{\\fontsize{9pt}{13pt} \\selectfont\n";
-		law_latex += law_data[1].split("\n").join("\\\\\n");
+		law_latex += law_data[1].replace(/　+/g, '').split("\n").join("\\\\\n");
 		law_latex += "}\n\n";
 
 		law_latex += "\\begin{multicols*}{2}\n";
