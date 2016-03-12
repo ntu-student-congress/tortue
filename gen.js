@@ -15,7 +15,7 @@ fs.readdir("laws", function(err, law_cats) {
 			var law_latex = "\\newpage \\section*{" + law_data[0] + "}\n\\addcontentsline{toc}{section}{" + law_data[0] + "}"; // 法名
 
 			// 修訂紀錄
-			law_latex += "{\\fontsize{9pt}{13pt} \\selectfont\n";
+			law_latex += "{\\fontsize{9pt}{13pt} \\fontml \\selectfont\n";
 			law_latex += law_data[1].replace(/　+/g, '').split("\n").join("\\\\\n");
 			law_latex += "}\n\n";
 
