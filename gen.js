@@ -24,7 +24,7 @@ fs.readdir("laws", function(err, law_cats) {
 			// 內文
 			var formatted_lines = law_data[2].split("\n").map(function(element, index, array) {
 				if(element[0] == "第") { // 章
-					return "\\vspace{1em}\\subsection*{" + element + "}\\vspace{1em}";
+					return "\\vspace{1em}\\subsection*{" + element + "}\\vspace{1em}\\\\";
 				}
 				var text = element.replace(/^\s+/, '');
 				switch(element.search(/\S/) / 2){
