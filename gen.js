@@ -31,11 +31,11 @@ fs.readdir("laws", function(err, law_cats) {
 					case 1: // 條
 						return "\\textbf{" + text.replace('【', '【{\\fontml ').replace('】', '}】') + "}\\\\";
 					case 2: // 項
-						return "\\begin{changemargin}{2em}{0em}\\hspace*{-2em}" + text + "\\end{changemargin}\\\\";
+						return "\\begin{addmargin}[2em]{-2em}" + text + "\\end{addmargin}\\\\";
 					case 3: // 款
-						return "\\begin{changemargin}{4em}{0em}\\hspace*{-2em}" + text + "\\end{changemargin}\\\\";
+						return "\\begin{addmargin}[4em]{-2em}" + text + "\\end{addmargin}\\\\";
 					case 4: // 目
-						return "\\begin{changemargin}{6em}{0em}\\hspace*{-2em}" + text + "\\end{changemargin}\\\\";
+						return "\\begin{addmargin}[6em]{-2em}" + text + "\\end{addmargin}\\\\";
 					default:
 						return "";
 				}
