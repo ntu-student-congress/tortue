@@ -50,6 +50,7 @@ fs.readdir("laws", function(err, law_cats) {
 	});
 
 	var latex_final = fs.readFileSync('front.tex', 'utf-8');
+	latex_final += fs.readFileSync('cover.tex', 'utf-8');
 	latex_final += cats_latex.join("\n\n");
 	latex_final += fs.readFileSync('back.tex', 'utf-8');
 	console.log(latex_final);
