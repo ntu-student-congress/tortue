@@ -2,8 +2,8 @@ var fs = require('fs');
 
 module.exports = function(law) {
   var law_data = fs.readFileSync("laws/" + law, 'utf-8').replace(/\r\n/g,"\n").split("\n\n");
-  var law_latex = "\\cleardoublepage \\section*{\\fontml " + law_data[0] + "}\n\\addcontentsline{toc}{section}{" + law_data[0] + "}"; // 法名
-
+  var law_latex = "\\section*{\\fontml " + law_data[0] + "}\n\\addcontentsline{toc}{section}{" + law_data[0] + "}"; // 法名
+  
   // 修訂紀錄
   law_latex += "{\\fontsize{9pt}{13pt} \\fontml \\selectfont\n";
   law_latex += law_data[1].replace(/　+/g, '').split("\n").join("\\\\\n");
