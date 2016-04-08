@@ -23,7 +23,7 @@ fs.readdir("laws", function(err, law_cats) {
 
 			// 內文
 			var formatted_lines = law_data[2].split("\n").map(function(element, index, array) {
-				if(element[0] == "第") { // 章
+				if(element.length > 1 && element[0] != " ") { // 章
 					return "\\subsection*{" + element + "}";
 				}
 				var text = element.replace(/^\s+/, '');
