@@ -34,7 +34,7 @@ fs.readdir("laws", function(err, law_cats) {
     });
     var laws_latex = laws.map(function(law_fn) {
       if(!params.combined) {
-        fs.writeFileSync("laws_tex/" + law_fn.split('.')[0] + ".tex", [templates.front, generator(law_fn), "\\end{document}"].join("\n"));
+        fs.writeFileSync("laws_tex/" + law_fn.split('.')[0] + ".tex", [templates.front, "\\begin{document}", generator(law_fn), "\\end{document}"].join("\n"));
       } else {
         return [templates.cleardoublepage, generator(law_fn)].join("");
       }
