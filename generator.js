@@ -13,7 +13,7 @@ module.exports = function(law) {
 
   // 內文
   var formatted_lines = law_data[2].split("\n").map(function(element, index, array) {
-    if(element.length > 1 && element[0] != " ") { // 章
+    if(element.length > 1 && element[0] != ' ' && element[0] != '<') { // 章
       return "\\subsection*{" + element + "}";
     }
     var text = element.replace(/^\s+/, '');
@@ -27,6 +27,13 @@ module.exports = function(law) {
       case 4: // 目
         return "\\begingroup\\raggedright\\leftskip=6em\\hspace{-2em}\\vspace{0em}" + text + " \\par\\endgroup\\par\\vspace{0em}";
       default:
+        if(element[0] == '<') {
+          if(element[1] == 'P') {
+            return '{\\fontml ';
+          } else {
+            return '}';
+          }
+        }
         return "";
     }
   });
