@@ -28,7 +28,7 @@ module.exports = function(law) {
         return "\\begingroup\\raggedright\\leftskip=6em\\hspace{-2em}\\vspace{0em}" + text + " \\par\\endgroup\\par\\vspace{0em}";
       default:
         if(element[0] == '<') {
-          if(element[1] == 'P') {
+          if(element[1] == 'S') {
             return '{\\fontml ';
           } else {
             return '}';
