@@ -2,10 +2,10 @@ var fs = require('fs');
 
 module.exports = function(law) {
   var law_data = fs.readFileSync("laws/" + law, 'utf-8').replace(/\r\n/g,"\n").split("\n\n");
-  var law_latex = "\\section*{\\fontml " + law_data[0] + "}\n\\addcontentsline{toc}{section}{" + law_data[0] + "}"; // 法名
+  var law_latex = "\\section*{\\fontst " + law_data[0] + "}\n\\addcontentsline{toc}{section}{" + law_data[0] + "}"; // 法名
 
   // 修訂紀錄
-  law_latex += "{\\fontsize{9pt}{13pt} \\fontml \\selectfont\n";
+  law_latex += "{\\fontsize{9pt}{13pt} \\fontst \\selectfont\n";
   law_latex += law_data[1].replace(/　+/g, '').split("\n").join("\\\\\n");
   law_latex += "}\n\n";
 
@@ -19,7 +19,7 @@ module.exports = function(law) {
     var text = element.replace(/^\s+/, '');
     switch(element.search(/\S/) / 2){
       case 1: // 條
-        return "\\vspace{0.15em}\\textbf{" + text.replace('【', '【{\\fontml ').replace('】', '}】') + "}\\\\";
+        return "\\vspace{0.15em}\\textbf{" + text.replace('【', '【{\\fontst ').replace('】', '}】') + "}\\\\";
       case 2: // 項
         return "\\begingroup\\raggedright\\leftskip=0em\\vspace{0em}　　" + text + " \\par\\endgroup\\par\\vspace{0em}";
       case 3: // 款
@@ -29,7 +29,7 @@ module.exports = function(law) {
       default:
         if(element[0] == '<') {
           if(element[1] == 'S') {
-            return '{\\fontml ';
+            return '{\\fontst ';
           } else {
             return '}';
           }

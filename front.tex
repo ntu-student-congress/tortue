@@ -17,12 +17,12 @@
 \setlength\columnsep{1cm}
 \usepackage{fontspec} % 允許設定字體
 \usepackage{xeCJK} % 分開設置中英文字型
-\setCJKmainfont[AutoFakeBold=3,AutoFakeSlant=.4]{DFKai-SB} % 設定中文字型
+\setCJKmainfont[AutoFakeBold=3,AutoFakeSlant=.4]{DFKai-SB} % 標楷體
 \setmainfont{PMingLiU}
-\setCJKfamilyfont{songtitc}{Songti TC} % 設定新字型(新細明體)
-\newcommand\fontml{\CJKfamily{songtitc}} % 新增指令\fontml應用字型
-\setCJKfamilyfont{noto}{Noto Sans CJK TC Bold}
-\newcommand\fontnoto{\CJKfamily{noto}}
+\setCJKfamilyfont{songtitc}{Songti TC} % 宋體繁
+\newcommand\fontst{\CJKfamily{songtitc}}
+\setCJKfamilyfont{heiti}{WenQuanYi Micro Hei}
+\newcommand\fontheiti{\CJKfamily{heiti}}
 \usepackage{titlesec}
 \titlespacing*{\subsection}{0pt}{1em}{1em}
 % \setromanfont{Georgia} % 字型
@@ -32,6 +32,3 @@
 \XeTeXlinebreakskip = 0pt plus 1pt % 字與字之間加入0pt至1pt的間距，確保左右對整齊
 \parindent 0em % 段落縮進
 \setlength{\parskip}{0pt} % 段落之間的距離
-
-% \setCJKfamilyfont{biaukai}{BiauKai} % 設定新字型(標階體)
-% \newcommand\fontbk{\CJKfamily{biaukai}} % 新增指令\fontbk應用字型

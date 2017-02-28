@@ -26,7 +26,7 @@ fs.readdir("laws", function(err, law_cats) {
     if(!params.combined && !fs.existsSync("laws_tex/" + law_cat)) {
         fs.mkdirSync("laws_tex/" + law_cat);
     }
-    var cat_latex = templates.cleardoublepage + '\\vspace*{\\fill}\\begin{center} \\fontsize{80pt}{100pt} \\fontnoto ' + law_cat.split('_')[1] + '\\end{center}\\vspace*{\\fill}\n';
+    var cat_latex = templates.cleardoublepage + '\\vspace*{\\fill}\\begin{center} \\fontsize{80pt}{100pt} \\fontheiti ' + law_cat.split('_')[1] + '\\end{center}\\vspace*{\\fill}\n';
     var laws_fn = fs.readdirSync("laws/" + law_cat);
     var laws = [];
     laws_fn.forEach(function(law_in_cat) {

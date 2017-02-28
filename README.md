@@ -31,7 +31,7 @@
  - gen.js 須使用 Node.js 執行
  - CJK 字元支援使用 XeLaTex 達成
  - 產生 PDF 檔案需有 LaTeX 相關程式
- - 目前使用字體為標楷體、宋體繁、Noto Sans CJK TC，需有安裝相關字體方能使用
+ - 目前使用字體為標楷體、宋體繁、文泉驛微米黑，需有安裝相關字體方能使用
  - Debian/Ubuntu 系統可使用 `apt-get install texlive-full` 安裝 LaTeX 相關套件
 
 ## 使用範例
