@@ -1,0 +1,23 @@
+sudo: required
+dist: trusty
+laugange: javascript
+before_install:
+- sudo apt-get -qq update
+- sudo apt-get -y --no-install-recommends install texlive-full
+- sudo mkdir -p /usr/share/fonts/truetype/
+- sudo cp fonts/* /usr/share/fonts/truetype/
+- sudo mkfontscale
+- sudo mkfontdir
+- sudo fc-cache -f
+script:
+- node gen.js 1
+- xelatex final.tex -interaction=nonstopmode
+deploy:
+  provider: releases
+  api_key:
+    secure: mDvhOlagpMuEgPnd8YEb1nlkBlWNpaWSfYBn5KB/dagdbpAMCelWgQQufBHwnUa+0tYTWaLvXb2eOkMYmUF+NGhH+XvquCSzQCr5wT51yr0qC1+rzztDh2JbkKOJUWepS8ANgQSxBKL5Wl+dEuRSBeaw728G8AMylhPT4ryzqJYmGXvmQYhsjC7CWvvzdG941JLxnOVFDsolsMA7RRfWu8ycbqfrxzCfhDKW6xu1SAx7/pf0kDPkGpYPEKL+eiFTgZBFGISnYbnY8uVmkVZj9P9CZvcNsY+7phA/GoQ+/NRGfe9jdXYaK84PqwfrDMjnXKZ0Hyb68TL259rp4H7e5/nSkybTt9Zy3/Ljyaj3dtm2d69/YcMNRjHqa1I4agtTjrmlIlrQA8g2fIrFvGAPEy2I97TIzOy7AThP4IC9oiY4J9SXtzCV66dXN3aBhDPNhx+xMIKSBlstsXng9LRDrmC+AwW6srdyfN/yJ1Kut/PINxXeI6c+DSzx3Mr+VlugFoVgaXSoRlhcjctgzdcAhuJZ1Qj3L8Ip/MU8qQKC37MoQUrbcNsfpNLCCq3bvZdb+9ev2fqkkvgNGIZJn1sK6k/McAXZ0CKdXqgiCcctZel1n/iTwj3t9MajcW5V292p73wdL6elvFg/0KxMBxRcREQo7cM9NAMFRIFWmqd1txE=
+  file: final.pdf
+  skip_cleanup: true
+  on:
+    repo: ntu-student-congress/tortue
+    branch: master
