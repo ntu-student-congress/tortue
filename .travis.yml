@@ -4,8 +4,6 @@ laugange: javascript
 before_install:
 - sudo apt-get -qq update
 - sudo apt-get -y --no-install-recommends install texlive-full
-- tlmgr init-usertree
-- tlmgr install ulem
 - sudo mkdir -p /usr/share/fonts/truetype/
 - sudo cp fonts/* /usr/share/fonts/truetype/
 - sudo mkfontscale
