@@ -3,9 +3,7 @@ dist: trusty
 laugange: javascript
 before_install:
 - sudo apt-get -qq update
-- sudo apt-get -y --no-install-recommends install texlive-latex-extra texlive-latex-recommended
-  texlive-fonts-extra texlive-fonts-recommended texlive-lang-chinese texlive-formats-extra
-  lmodern xzdec
+- sudo apt-get -y --no-install-recommends install texlive-full
 - tlmgr init-usertree
 - tlmgr install ulem
 - sudo mkdir -p /usr/share/fonts/truetype/
