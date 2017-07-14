@@ -1,0 +1,5 @@
+# Default
+* text=auto
+
+# Force CRLF on law text
+laws/* text eol=crlf
