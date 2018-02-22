@@ -13,6 +13,9 @@ module.exports = function(law) {
 
   // 內文
   var formatted_lines = law_data[2].split("\n").map(function(element, index, array) {
+    if (element[0] == '　' || element[0] == '\t') {
+      throw new Error("Illegal character for indention (probably a mistake). Please use 2 spaces. Line: [" + element + "]");
+    }
     if(element.length > 1 && element[0] != ' ' && element[0] != '<') { // 章
       return "\\subsection*{" + element + "}";
     }
@@ -27,6 +30,9 @@ module.exports = function(law) {
       case 4: // 目
         return "\\begingroup\\raggedright\\leftskip=6em\\hspace{-2em}\\vspace{0em}" + text + " \\par\\endgroup\\par\\vspace{0em}";
       default:
+        if ((function(x){ return x >= 0 && x % 2 != 0; })(element.search(/\S/))) {
+          throw new Error("The number of indenting spaces must be multiples of 2, got " + element.search(/\S/) + ". Line: [" + element + "]");
+        }
         if(element[0] == '<') {
           if(element[1] == 'S') {
             return '{\\fontst ';
