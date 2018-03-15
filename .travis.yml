@@ -11,7 +11,7 @@ before_install:
 - sudo fc-cache -f
 script:
 - node gen.js 1
-- xelatex final.tex -interaction=nonstopmode -halt-on-error
+- seq 2 | xargs -I{} xelatex final.tex -interaction=nonstopmode -halt-on-error
 deploy:
   provider: releases
   api_key:
