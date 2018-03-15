@@ -1,14 +1,16 @@
-sudo: required
+sudo: false
 dist: trusty
-laugange: javascript
+laugange: node_js
+addons:
+  apt:
+    packages:
+    - texlive-full
 before_install:
-- sudo apt-get -qq update
-- sudo apt-get -y --no-install-recommends install texlive-full
-- sudo mkdir -p /usr/share/fonts/truetype/
-- sudo cp fonts/* /usr/share/fonts/truetype/
-- sudo mkfontscale
-- sudo mkfontdir
-- sudo fc-cache -f
+- mkdir -p ~/.fonts
+- cp fonts/* ~/.fonts
+- mkfontscale
+- mkfontdir
+- fc-cache -v
 script:
 - node gen.js 1
 - seq 2 | xargs -I{} xelatex final.tex -interaction=nonstopmode -halt-on-error
