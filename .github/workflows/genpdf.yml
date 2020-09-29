@@ -11,14 +11,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: setup node
+    - name: Setup node
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
 
-    - name: Setup LaTex
+    - name: Setup LaTeX
       run: sudo apt-get -qq update
     - run: sudo apt-get -y --no-install-recommends install texlive-full
+    - name: Setup Fonts
+      run: sudo apt-get -y install xfonts-utils
     - run: sudo mkdir -p /usr/share/fonts/truetype/
     - run: sudo cp fonts/* /usr/share/fonts/truetype/
     - run: sudo mkfontscale
@@ -28,10 +30,10 @@ jobs:
     - name: Generate .tex document
       run: node gen.js 1
 
-    - name: Generate PDF file
+    - name: Generate PDF File
       run: seq 2 | xargs -I{} xelatex final.tex -interaction=nonstopmode -halt-on-error
 
-    - name: Create release
+    - name: Create Release
       id: create_release
       uses: actions/create-release@v1.0.0
       env:
