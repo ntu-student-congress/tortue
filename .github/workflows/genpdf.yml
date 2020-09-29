@@ -17,7 +17,7 @@ jobs:
         node-version: '12.x'
 
     - name: Setup LaTex
-    - run: sudo apt-get -qq update
+      run: sudo apt-get -qq update
     - run: sudo apt-get -y --no-install-recommends install texlive-full
     - run: sudo mkdir -p /usr/share/fonts/truetype/
     - run: sudo cp fonts/* /usr/share/fonts/truetype/
