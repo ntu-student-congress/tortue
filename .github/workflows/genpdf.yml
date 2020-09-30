@@ -52,5 +52,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./final.pdf
-        asset_name: final.pdf
+        asset_name: statute.pdf
         asset_content_type: application/pdf
